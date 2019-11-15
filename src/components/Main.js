@@ -70,8 +70,6 @@ class Main extends Component {
     }
 
     addToBurger = (name) => {
-        console.log(this.state.id);
-        console.log(`kliknalem element ${name}`);
         const newEl = {
             id: this.state.id,
             name
@@ -80,6 +78,10 @@ class Main extends Component {
             id: prevState.id+1,
             burger: [...prevState.burger, newEl],
         }))
+    }
+
+    removeFromBurger = () => {
+        console.log(`delete`);
     }
 
 
