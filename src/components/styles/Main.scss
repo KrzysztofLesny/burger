@@ -9,6 +9,7 @@
     background-color: lightgreen;
 
     &__Button {
+        cursor: pointer;
         background-color: palegoldenrod;
         width: 200px;
         padding: 10px;
@@ -23,12 +24,22 @@
 .Burger {
     position: relative;
     height: 767px;
+    background-color: darkgray;
 
     &__Part {
         position: absolute;
         width: 204px;
-        height: 119px;
+        height: 140px;
         left: 50%;
         transform: translateX(-50%);
+        background-position: bottom;
+        background-repeat: no-repeat;
+    }
+
+    &__Close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
     }
 }

@@ -59,7 +59,6 @@ class Main extends Component {
                 name: `tomato`
             }
         ],
-        id: 1,
         burger: [
             {
                 id: 0,
@@ -71,17 +70,19 @@ class Main extends Component {
 
     addToBurger = (name) => {
         const newEl = {
-            id: this.state.id,
+            id: this.state.burger.length,
             name
         }
         this.setState((prevState) => ({
-            id: prevState.id+1,
             burger: [...prevState.burger, newEl],
         }))
     }
 
-    removeFromBurger = () => {
-        console.log(`delete`);
+    removeFromBurger = (id) => {
+        const burger = this.state.burger.filter(item => item.id !== id);
+        this.setState ({
+            burger
+        })
     }
 
 
@@ -95,7 +96,10 @@ class Main extends Component {
                     />
                 </div>
                 <div className="Right">
-                    <Builder burger={this.state.burger}/>
+                    <Builder 
+                        burger={this.state.burger}
+                        removeFromBurger={this.removeFromBurger}
+                    />
                 </div>
             </div>
          );
