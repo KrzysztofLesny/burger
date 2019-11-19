@@ -2,8 +2,9 @@ import React from 'react';
 import close from '../img/close.png'
 
 const Builder = ({burger, removeFromBurger}) => {
+    console.log(burger)
     const WholeBurger = burger.map(item => {
-        const imageUrl = require(`../img/${item.name}.png`)
+        const imageUrl = require(`../img/${item.url}.png`)
         return (
             <div 
                 key={item.id}
@@ -16,7 +17,8 @@ const Builder = ({burger, removeFromBurger}) => {
                 }
             >
                 {burger.length-1 === item.id && 
-                    item.id !== 0 && 
+                    item.id !== 0 &&
+                    item.url !== `bunTop` && 
                     <img 
                         src={close} 
                         alt="close button"

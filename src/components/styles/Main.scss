@@ -2,19 +2,33 @@
     width: 100%;
     background-color: lightgray;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 3fr;
 }
 
-.Left {
+.SideNav {
     background-color: lightgreen;
+
+    &__Buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 
     &__Button {
         cursor: pointer;
         background-color: palegoldenrod;
-        width: 200px;
+        width: 125px;
         padding: 10px;
         margin: 10px 0;
+
+        &-Finish {
+            cursor: pointer;
+            background-color: paleturquoise;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
     }
+
 }
 
 .Right {

@@ -5,76 +5,98 @@ import Builder from './Builder';
 
 class Main extends Component {
     state = { 
+        burgerFinished: false,
         ingredients: [
             {
                 id: 0,
-                name: `avocado`
+                url: `avocado`, 
+                name: `Avocado`
             },
             {
                 id: 1,
-                name: `bacon`
+                url: `bacon`,
+                name: `Bacon`
             },
             {
                 id: 2,
-                name: `bellPepper`
+                url: `bellPepper`,
+                name: `Bell Pepper`
             },
             {
                 id: 3,
-                name: `cheese`
+                url: `cheese`,
+                name: `Cheese`
             },
             {
                 id: 4,
-                name: `egg`
+                url: `egg`,
+                name: `Egg`
             },
             {
                 id: 5,
-                name: `fish`
+                url: `fish`,
+                name: `Fish`
             },
             {
                 id: 6,
-                name: `lettuce`
+                url: `lettuce`,
+                name: `Lettuce`
             },
             {
                 id: 7,
-                name: `meat`
+                url: `meat`,
+                name: `Meat`
             },
             {
                 id: 8,
-                name: `onions`
+                url: `onions`,
+                name: `Onions`
             },
             {
                 id: 9,
-                name: `pickles`
+                url: `pickles`,
+                name: `Pickles`
             },
             {
                 id: 10,
-                name: `pineapple`
+                url: `pineapple`,
+                name: `Pineapple`
+
             },
             {
                 id: 11,
-                name: `salami`
+                url: `salami`,
+                name: `Salami`
             },
             {
                 id: 12,
-                name: `tomato`
+                url: `tomato`,
+                name: `Tomato`
+            },
+            {
+                id: 13,
+                url: `bunTop`,
+                name: `Finish`
             }
         ],
         burger: [
             {
                 id: 0,
-                name: `bunBottom`
+                url: `bunBottom`
             }
             
         ]
     }
 
-    addToBurger = (name) => {
+    addToBurger = (url) => {
         const newEl = {
             id: this.state.burger.length,
-            name
-        }
+            url
+        };
+        const burgerFinished = url === `bunTop` ? true : false;
         this.setState((prevState) => ({
             burger: [...prevState.burger, newEl],
+            burgerFinished
         }))
     }
 
@@ -89,11 +111,15 @@ class Main extends Component {
     render() { 
         return ( 
             <div className="Main">
-                <div className="Left">
+                <div className="SideNav">
+                    {!this.state.burgerFinished ?
                     <Buttons 
                         ingredients={this.state.ingredients}
                         addToBurger={this.addToBurger}
                     />
+                    :
+                    `tu bedzie order form`
+                    }
                 </div>
                 <div className="Right">
                     <Builder 
