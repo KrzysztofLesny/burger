@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./styles/Main.scss";
+import { Link } from 'react-router-dom';
 import Buttons from './Buttons';
 import Builder from './Builder';
 
@@ -73,11 +74,6 @@ class Main extends Component {
                 url: `tomato`,
                 name: `Tomato`
             },
-            {
-                id: 13,
-                url: `bunTop`,
-                name: `Finish`
-            }
         ],
         burger: [
             {
@@ -112,13 +108,23 @@ class Main extends Component {
         return ( 
             <div className="Main">
                 <div className="SideNav">
-                    {!this.state.burgerFinished ?
                     <Buttons 
                         ingredients={this.state.ingredients}
                         addToBurger={this.addToBurger}
                     />
+                    {!this.state.burgerFinished ?
+                    <button 
+                        className="SideNav__Button-Finish" 
+                        onClick={() => this.addToBurger(`bunTop`)}
+                    >
+                        Finish
+                    </button>
                     :
-                    `tu bedzie order form`
+                    <Link to="/order">
+                        <button className="SideNav__Button-Finish">
+                            Order
+                        </button>
+                    </Link>
                     }
                 </div>
                 <div className="Right">

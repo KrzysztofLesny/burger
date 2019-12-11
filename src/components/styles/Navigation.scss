@@ -1,4 +1,74 @@
-.Navigation {
+.Nav {
     width: 100%;
-    background-color: aquamarine;
+    background-color: #424242;
+    color: white;
+    margin: 0;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__Logo {
+        font-size: 2em;
+    }
+
+    &__Menu {
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
 }
+
+.Menu {
+    &__Btn {
+        margin: 0 15px;
+        list-style-type: none;
+        font-size: 3em;
+        font-weight: 900;
+        line-height: 1.2em;
+        text-transform: uppercase;
+    }
+
+    &__Link {
+        text-decoration: none;
+        position: relative;
+        display: block;
+        color: transparent;
+        -webkit-text-stroke: 1px white;
+        
+
+    }
+
+    &__Link:hover {
+        color: white;
+        -webkit-text-stroke: 1px black;
+        transition: 0.5s;
+    }
+
+    &__Link::before,
+    &__Link::after{
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.5s;
+    }
+
+    &__Link:hover::before {
+        color: red;
+        z-index: 1;
+        -webkit-text-stroke: 1px black;
+        transform: translate(5px, -5px);
+    }
+
+    &__Link:hover::after {
+        color: cyan;
+        z-index: 1;
+        -webkit-text-stroke: 1px black;
+        transform: translate(10px, -10px);
+    }
+}
+
+
+
+

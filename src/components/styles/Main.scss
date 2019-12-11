@@ -1,6 +1,5 @@
 .Main {
     width: 100%;
-    background-color: lightgray;
     display: grid;
     grid-template-columns: 2fr 3fr;
 }
@@ -31,14 +30,9 @@
 
 }
 
-.Right {
-    background-color: white;
-}
-
 .Burger {
     position: relative;
     height: 767px;
-    background-color: darkgray;
 
     &__Part {
         position: absolute;

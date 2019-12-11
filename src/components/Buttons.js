@@ -5,18 +5,16 @@ const Buttons = ({ingredients, addToBurger}) => {
         <button 
             key={ingredient.id}
             onClick={() => addToBurger(ingredient.url)}
-            className={ingredient.id !== 13 ? 
-                `SideNav__Button` 
-                : 
-                `SideNav__Button-Finish`
-            }
+            className="SideNav__Button"
         >
             {ingredient.name}
         </button>
     ));
     return ( 
-        <div className="SideNav__Buttons">
-            {buttons}
+        <div>
+            <div className="SideNav__Buttons">
+                {buttons}
+            </div>
         </div>
     );
 }
