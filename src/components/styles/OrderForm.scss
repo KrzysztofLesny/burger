@@ -1,0 +1,44 @@
+.OrderFormContainer {
+    width: 100%;
+    display: grid; 
+}
+
+.OrderForm {
+    margin: 0 auto;
+    width: 90%;
+
+    &__Row {
+        display: grid;
+        gap: 0 50px;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid white;
+    }
+}
+
+.FormElements {
+
+    &__Radio {
+        display: block;
+        text-align: left;
+        padding-left: 10px;
+        color: white;
+    }
+
+    &__Element {
+        grid-column: 1 / 2;
+        box-sizing: border-box;
+        display: inline-block;
+        text-align: left;
+        height: 30px;
+        border-radius: 5px;
+        margin: 10px 0 0 10px;
+        padding-left: 10px;
+        border: 2px solid transparent;
+
+        &-right {
+            grid-column: 2 / 3;
+        }
+    }
+}

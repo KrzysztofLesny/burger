@@ -98,8 +98,10 @@ class Main extends Component {
 
     removeFromBurger = (id) => {
         const burger = this.state.burger.filter(item => item.id !== id);
+        const burgerFinished = false;
         this.setState ({
-            burger
+            burger,
+            burgerFinished
         })
     }
 
@@ -113,18 +115,32 @@ class Main extends Component {
                         addToBurger={this.addToBurger}
                     />
                     {!this.state.burgerFinished ?
-                    <button 
-                        className="SideNav__Button-Finish" 
-                        onClick={() => this.addToBurger(`bunTop`)}
-                    >
-                        Finish
-                    </button>
-                    :
-                    <Link to="/order">
-                        <button className="SideNav__Button-Finish">
-                            Order
+                    <div>
+                        <button 
+                            className="SideNav__Button SideNav__Button-Finish" 
+                            onClick={() => this.addToBurger(`bunTop`)}
+                        >
+                            Finish
                         </button>
-                    </Link>
+                    </div>
+                    :
+                    <div>
+                        <button 
+                            className="SideNav__Button SideNav__Button-Finish"
+                            onClick={() => this.removeFromBurger(this.state.burger.length-1)}
+                        >
+                            Actually, not finished yet
+                        </button>
+                        
+                        {/* zmienić na dodać do koszyka */}
+                        <Link 
+                            to="/order" 
+                            className="SideNav__Link"
+                            data-text="Order"
+                        >
+                            Order
+                        </Link>
+                    </div>
                     }
                 </div>
                 <div className="Right">
