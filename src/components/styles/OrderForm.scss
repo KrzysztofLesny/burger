@@ -1,6 +1,10 @@
 .OrderFormContainer {
     width: 100%;
     display: grid; 
+
+    &__Title {
+        color: white;
+    }
 }
 
 .OrderForm {
@@ -17,13 +21,123 @@
     }
 }
 
+input[type=radio],
+input[type=checkbox] {
+    display: none;
+}
+
 .FormElements {
 
+    &__Title {
+        font-size: 20px;
+        color: white;
+    }
+
     &__Radio {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+        background-color: #424242;
+        border-radius: 50%;
+        border: 2px solid white;
+        transition: 0.5s;
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: none;
+            top: 6px;
+            left: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: white;
+            transition: 0.5s;
+        }
+        
+    }
+
+    &__CheckBox {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+        background-color: #424242;
+        border: 2px solid white;
+        transition: 0.5s;
+
+        &::after {
+            content: "";
+            position: absolute;
+            transition: 0.5s;
+            display: none;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
+    &__Label {
+        position: relative;
         display: block;
         text-align: left;
-        padding-left: 10px;
+        height: 24px;
         color: white;
+        cursor: pointer;
+        padding-left: 35px;
+        margin: 10px 0 0 10px;
+
+        &:hover .FormElements__Radio{
+            &::after {
+                display: block;
+            }
+        }
+
+        & input:checked ~ .FormElements__Radio{
+            border: 2px solid white;
+            background-color: white;
+
+            &::after {
+                display: none;
+            }
+        }  
+
+
+        &Check {
+            position: relative;
+            display: block;
+            text-align: left;
+            color: white;
+            cursor: pointer;
+            grid-column: 1 / 2;
+            padding-left: 35px;
+            margin: 10px 0 0 10px;
+            
+            &:hover .FormElements__CheckBox{
+                background-color: white;
+            }
+    
+            & input:checked ~ .FormElements__CheckBox{
+                border: 2px solid white;
+                background-color: red;
+    
+                &::after {
+                    display: block;
+                }
+            }  
+        
+        }
     }
 
     &__Element {
@@ -37,8 +151,57 @@
         padding-left: 10px;
         border: 2px solid transparent;
 
+        &:focus {
+            outline: none !important;
+            border: 2px solid transparent;
+        }
+
         &-right {
             grid-column: 2 / 3;
         }
+    }
+
+    &__TextAea {
+        grid-column: 1 / 2;
+        height: 60px;
+        border-radius: 5px;
+        margin: 10px 0 0 10px;
+        padding-left: 10px;
+        border: 2px solid transparent;
+        outline: none;
+        resize: none;
+        overflow: auto;
+    }
+
+    &__Date {   
+        display: block;
+        text-align: center;
+        height: 27px;
+        width: 200px;
+        margin: 10px 0 0 10px;
+        color: white;
+        border: 2px solid white;
+        background-color: #424242;
+        font-size: 15px;
+        cursor: pointer;
+        outline: none;
+        box-sizing: content-box;
+        padding: 5px 0;
+
+            &:focus {
+                border: 2px solid white;
+            }
+            
+            &::-webkit-outer-spin-button, /* Removes arrows */
+            &::-webkit-inner-spin-button, /* Removes arrows */
+            &::-webkit-clear-button { /* Removes blue cross */
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            &::-webkit-calendar-picker-indicator {
+                color: white; 
+                background: #424242; 
+            }
+        
     }
 }
