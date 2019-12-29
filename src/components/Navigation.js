@@ -8,8 +8,6 @@ const navs = [
     {name: "build-a-burger", path: "/build-a-burger"}
 ];
 
-
-
 const Navigation = () => {
 
     const menu = navs.map((nav) => (
@@ -31,8 +29,6 @@ const Navigation = () => {
             <div className="Nav__Logo">LOGO</div>
             <ul className="Nav__Menu">
                 {menu}
-
-            {/* dodać koszyk */}
             </ul>
         </div>
     );
